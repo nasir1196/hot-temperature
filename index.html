@@ -9,13 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        body {
-            background: url(images/bg-image.jpg) no-repeat;
-            background-size: cover;
-            height: 100vh;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -27,12 +21,13 @@
                         <input id="input-city" type="text" class="form-control"
                             placeholder="Enter a location for Weather ...">
                         <div class="input-group-append">
-                            <button id="submit-button" type="button" class="btn btn-danger">Search</button>
+                            <button onclick="weatherHandler()" id="submit-button" type="button"
+                                class="btn btn-danger">Search</button>
                         </div>
                     </div>
                 </form>
                 <div class="weather-status text-white text-center">
-                    <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
+                    <img id="get-icon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
                     <h1>City <span id="show-city">Dhaka</span></h1>
                     <h3><span id="city-temp">38.06</span>&deg;C</h3>
                     <h1 class="lead"><span id="get-haze"></span></h1>
@@ -40,33 +35,10 @@
             </div>
         </section>
     </main>
-    <script>
-        const api = 'e6fe2b02335be3ae5bb685c9c51e70c1';
-        const submitButton = document.getElementById('submit-button');
-        submitButton.addEventListener('click', function () {
-            console.log('amare click marce');
+    <!-- closing all html and styling -->
 
-            const inputCity = document.getElementById('input-city').value;
-            const showCity = document.getElementById('show-city').innerText = inputCity;
-            getWeather(showCity, api);
-        })
-
-        function getWeather(London, api) {
-            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${London},uk&appid=${api}`)
-                .then(response => response.json())
-                .then(data => {
-                    const temperature = data.main;
-                    const tempValue = `${temperature.feels_like - 275.15}`;
-                    const tempNewValue = Math.round(tempValue);
-                    const cityTemp = document.getElementById('city-temp').innerText = tempNewValue;
-                    const newHaze = data.rain;
-                    const getHaze = document.getElementById('get-haze').innerText = newHaze;
-                    console.log(data);
-                })
-                .catch(error => console.log(error));
-        }
-
-    </script>
+    <!-- Script tag add Here  -->
+    <script src="weather/weather.js"></script>
 </body>
 
 </html>
