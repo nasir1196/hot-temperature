@@ -15,10 +15,10 @@ function getWeather(city, api) {
             const temperature = data.main;
             const tempValue = temperature.temp - 275;
             const tempNewValue = Math.round(tempValue);
-            const cityTemp = document.getElementById('city-temp').innerText = tempNewValue;
+            document.getElementById('city-temp').innerText = tempNewValue;
 
             const newHaze = data.weather[0].description;
-            const getHaze = document.getElementById('get-haze').innerText = newHaze;
+            document.getElementById('get-haze').innerText = newHaze;
 
             const changeImage = data.weather[0];
             const changeIcon = changeImage.icon;
