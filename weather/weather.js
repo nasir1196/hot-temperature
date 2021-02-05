@@ -19,7 +19,7 @@ function getWeather(city, api) {
 
             const newHaze = data.weather[0].description;
             const getHaze = document.getElementById('get-haze').innerText = newHaze;
-            
+
             const changeImage = data.weather[0];
             const changeIcon = changeImage.icon;
             const updateIcon = document.getElementById('get-icon');

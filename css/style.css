@@ -3,3 +3,20 @@ body {
   background-size: cover;
   height: 100vh;
 }
+#input-city{
+  color: #b60623;
+  font-weight: bolder;
+}
+#city-temp{
+  color: #2b0594;
+}
+.city-temp{
+  color: #c01111d0;
+  font-weight: bold;
+  font-size: 40px;
+}
+#get-haze{
+  color: #beab3d;
+  font-size: 30px;
+  font-weight: bold;
+}
